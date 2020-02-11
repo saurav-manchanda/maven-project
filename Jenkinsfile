@@ -37,20 +37,6 @@ pipeline{
 			}
 		}
 		
-		stage("Checking code quality"){
-			steps{
-				build 'maven-webapp-checkstyle'
-			}
-		
-			post{
-				success{
-					echo "checked the code quality successfully."
-				}
-				failure{
-					echo "code quality not good."
-				}
-			}
-		}
 		stage("Deploy to production"){
 			steps{
 				timeout(time:1, unit: 'HOURS') {
